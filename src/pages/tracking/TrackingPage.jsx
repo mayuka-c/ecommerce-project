@@ -2,7 +2,7 @@ import axios from "axios";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { Header } from "../components/Header";
+import { Header } from "../../components/Header";
 import "./TrackingPage.css";
 
 export function TrackingPage({ cart }) {

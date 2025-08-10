@@ -5,6 +5,9 @@ import { OrderSummary } from "./OrderSummary";
 import { PaymentSummary } from "./PaymentSummary";
 import "./CheckoutPage.css";
 
+// Tu use axios in browser console
+// window.axios = axios;
+
 export function CheckoutPage({ cart, loadCart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState(null);
@@ -15,7 +18,9 @@ export function CheckoutPage({ cart, loadCart }) {
       .then((response) => {
         setDeliveryOptions(response.data);
       });
+  }, []);
 
+  useEffect(() => {
     axios.get("/api/payment-summary").then((response) => {
       setPaymentSummary(response.data);
     });
