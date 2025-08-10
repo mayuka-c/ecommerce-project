@@ -2,7 +2,7 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import { formatMoney } from "../../utils/money";
 
-export function PaymentSummary({ paymentSummary, loadCart }) {
+export function PaymentSummary({ paymentSummary, cart, loadCart }) {
   const navigate = useNavigate();
 
   const createOrder = async () => {
@@ -55,6 +55,7 @@ export function PaymentSummary({ paymentSummary, loadCart }) {
           <button
             className="place-order-button button-primary"
             onClick={createOrder}
+            disabled={!cart || cart.length === 0}
           >
             Place your order
           </button>
